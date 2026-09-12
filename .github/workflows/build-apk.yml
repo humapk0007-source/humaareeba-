@@ -15,7 +15,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
       - run: npm install
-      - run: npx expo prebuild --platform android
+      - run: rm -rf android && npx expo prebuild --platform android --clean
       - run: cd android && chmod +x gradlew &&./gradlew assembleRelease
       - uses: actions/upload-artifact@v4
         with:
